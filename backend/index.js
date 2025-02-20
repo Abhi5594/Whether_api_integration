@@ -6,10 +6,10 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5002;
 
-app.use(cors()); // Enable CORS
-app.use(express.json()); // Enable JSON parsing
+app.use(cors()); 
+app.use(express.json()); 
 
-// Weather API Route
+
 app.get("/weather", async (req, res) => {
     try {
         const { city } = req.query;
@@ -29,12 +29,11 @@ app.get("/weather", async (req, res) => {
     }
 });
 
-// Redirect root URL to frontend server
+
 app.get("/", (req, res) => {
-    res.redirect("http://localhost:3000"); // Change to your frontend server URL
+    res.redirect("http://localhost:3000"); 
 });
 
-// Start server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
